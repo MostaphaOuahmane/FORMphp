@@ -25,11 +25,11 @@
 
                     <div class="inputBox">
                         <span>full name :</span>
-                        <input type="text" placeholder="john deo">
+                        <input type="text" placeholder="Ouahmane mostapha">
                     </div>
                     <div class="inputBox">
                         <span>email :</span>
-                        <input type="email" placeholder="example@example.com">
+                        <input type="email" placeholder="ouahmane.mostapha@example.com">
                     </div>
                     <div class="inputBox">
                         <span>address :</span>
@@ -37,17 +37,17 @@
                     </div>
                     <div class="inputBox">
                         <span>city :</span>
-                        <input type="text" placeholder="mumbai">
+                        <input type="text" placeholder="Pantin">
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
                             <span>state :</span>
-                            <input type="text" placeholder="india">
+                            <input type="text" placeholder="France">
                         </div>
                         <div class="inputBox">
                             <span>zip code :</span>
-                            <input type="text" placeholder="123 456">
+                            <input type="text" placeholder="93500">
                         </div>
                     </div>
 
@@ -59,29 +59,29 @@
 
                     <div class="inputBox">
                         <span>cards accepted :</span>
-                        <img src="images/card_img.png" alt="">
+                        <img src="img/card_img.png" alt="">
                     </div>
                     <div class="inputBox">
                         <span>name on card :</span>
-                        <input type="text" placeholder="mr. john deo">
+                        <input type="text" placeholder="Ouahmane Mostapha">
                     </div>
                     <div class="inputBox">
                         <span>credit card number :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444">
+                        <input type="number" min="1" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
                         <span>exp month :</span>
-                        <input type="text" placeholder="january">
+                        <input type="number" min="1" max="12" placeholder="04">
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
                             <span>exp year :</span>
-                            <input type="number" placeholder="2022">
+                            <input type="number" min="1" placeholder="2022">
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
-                            <input type="text" placeholder="1234">
+                            <input type="number" placeholder="1234">
                         </div>
                     </div>
 
