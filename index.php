@@ -81,7 +81,7 @@
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
-                            <input type="number" placeholder="1234">
+                            <input type="number" min="1" placeholder="1234">
                         </div>
                     </div>
 
