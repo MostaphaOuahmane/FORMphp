@@ -69,7 +69,7 @@
                     </div>
                     <div class="inputBox">
                         <span>credit card number :</span>
-                        <input type="number" min="1" name="credit_card_number" placeholder="1111-2222-3333-4444">
+                        <input type="text" name="credit_card_number" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
                         <span>exp month :</span>
@@ -94,6 +94,8 @@
             <input type="submit" name="submit" value="proceed to checkout" class="submit-btn">
 
         </form>
+        <hr>
+        <hr>
         <?php if (isset($_POST['submit'])) : ?>
         <!-- billing address -->
         <!-- ******************* -->
@@ -172,8 +174,7 @@
             ?>
         <?php $new_payment_kays_string = implode(',', array_keys($new_payment)); ?>
         <?php $new_payment_kays_placehorders = ':' . implode(',:', array_keys($new_payment)); ?>
-        <?php echo $new_payment_kays_string; ?>
-        <?php echo $new_payment_kays_placehorders; ?>
+
         <?php $connection = new PDO($dsn, $database_user, $database_user_password, $option);
             // contacte la base de donnée
             ?>
@@ -189,7 +190,10 @@
         <!--  ($statement1 = $connection->prepare($sql);Et($statement1->execute($new_payment); code pour contacte form avec base de donnée dans php my admin -->
 
 
+        <div style="background-color: green;color:white ;padding :10px;">
+            <p> Merci pour votre confiance </p>
 
+        </div>
 
 
         <?php endif; ?>
