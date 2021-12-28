@@ -93,3 +93,6 @@
 .container form .submit-btn:hover {
   background: #642005;
 }
+a {
+  display: block;
+}

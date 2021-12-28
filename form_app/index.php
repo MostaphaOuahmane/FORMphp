@@ -8,8 +8,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- lin icon boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    i:hover {
+        color: red;
+    }
+    </style>
 
 </head>
 
@@ -23,7 +40,7 @@
 
                 <div class="col">
 
-                    <h3 class="title">billing address</h3>
+                    <h3 class="title">billingaddresse</h3>
 
                     <div class="inputBox">
                         <span>full name :</span>
@@ -34,8 +51,8 @@
                         <input type="email" name="email" placeholder="ouahmane.mostapha@example.com">
                     </div>
                     <div class="inputBox">
-                        <span>address :</span>
-                        <input type="text" name="address" placeholder="room - street - locality">
+                        <span>addresse :</span>
+                        <input type="text" name="addresse" placeholder="room - street - locality">
                     </div>
                     <div class="inputBox">
                         <span>city :</span>
@@ -44,8 +61,8 @@
 
                     <div class="flex">
                         <div class="inputBox">
-                            <span>state :</span>
-                            <input type="text" name="state" placeholder="France">
+                            <span>paye:</span>
+                            <input type="text" name="paye" placeholder="France">
                         </div>
                         <div class="inputBox">
                             <span>zip code :</span>
@@ -96,6 +113,7 @@
         </form>
         <hr>
         <hr>
+
         <?php if (isset($_POST['submit'])) : ?>
         <!-- billing address -->
         <!-- ******************* -->
@@ -110,8 +128,8 @@
         <?php endif; ?>
         <!-- fin if email -->
         <!-- if address -->
-        <?php if (isset($_POST['address'])) : ?>
-        <?php $address = $_POST['address']; ?>
+        <?php if (isset($_POST['addresse'])) : ?>
+        <?php $addresse = $_POST['addresse']; ?>
         <?php endif; ?>
         <!-- fin if address -->
         <!-- if city -->
@@ -120,8 +138,8 @@
         <?php endif; ?>
         <!-- fin if city -->
         <!-- if state -->
-        <?php if (isset($_POST['state'])) : ?>
-        <?php $state = $_POST['state']; ?>
+        <?php if (isset($_POST['paye'])) : ?>
+        <?php $paye = $_POST['paye']; ?>
         <?php endif; ?>
         <!-- fin if state -->
         <!-- if zip_code -->
@@ -161,9 +179,9 @@
             $new_payment = array(
                 'full_name' => $full_name,
                 'email' => $email,
-                'address' => $address,
+                'addresse' => $addresse,
                 'city' => $city,
-                'state' => $state,
+                'paye' => $paye,
                 'zip_code' => $zip_code,
                 'name_on_card' => $name_on_card,
                 'credit_card_number' => $credit_card_number,
@@ -200,7 +218,55 @@
         <!-- fin if de submit -->
 
     </div>
+    <div>
+        <?php $connection = new PDO($dsn, $database_user, $database_user_password, $option);
+        // contacte la base de donnée
+        ?>
+        <?php $sql = "SELECT * FROM payment "; ?>
+        <?php $statement1 = $connection->prepare($sql); ?>
+        <?php $statement1->execute(); ?>
+        <?php $results = $statement1->fetchAll(); ?>
+        <table style=" width:100%;background:#eee;text-align:center;">
+            <tr>
+                <th>ID</th>
+                <th>full_name </th>
+                <th>email </th>
+                <th>addresse </th>
+                <th>city </th>
+                <th>paye </th>
+                <th> zip_code </th>
+                <th> name_on_card </th>
+                <th>credit_card_number </th>
+                <th>exp_month</th>
+                <th>exp_year </th>
+                <th> CVV </th>
+                <th>Delete</th>
+            </tr>
+            <?php foreach ($results as $row) : ?>
+            <tr>
+                <td> <a href="update.php?id=<?php echo $row['id']; ?>">#<?php echo $row['id']; ?></a></td>
+                <td><?php echo $row['full_name']; ?></td>
+                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['addresse']; ?></td>
+                <td><?php echo $row['city']; ?></td>
+                <td><?php echo $row['paye']; ?></td>
+                <td><?php echo $row['zip_code'] ?></td>
+                <td><?php echo $row['name_on_card'] ?></td>
+                <td><?php echo $row['credit_card_number'] ?></td>
+                <td><?php echo $row['exp_month'] ?></td>
+                <td><?php echo $row['exp_year'] ?></td>
+                <td><?php echo $row['CVV'] ?></td>
+                <td><a href="delete.php? id=<?php echo $row['id'] ?>" style="color:black;"><i
+                            class="bi bi-trash-fill"></i></a></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
 
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
