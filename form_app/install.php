@@ -7,15 +7,16 @@
 
 <?php
 // pour crier un table avec php et sql
-$sql = " CREATE TABLE IF NOT EXISTS
-Donnees_de_paiement( id INT UNSIGNED AUTO_INCREMENT,
-nam VARCHAR(30) NOT NULL , 
-prenome VARCHAR(30) NOT NULL , 
-texte TEXT NOT NULL, 
-PRIMARY KEY(id) );";
+// $sql = " CREATE TABLE IF NOT EXISTS
+// Donnees_de_paiement( id INT UNSIGNED AUTO_INCREMENT,
+// nam VARCHAR(30) NOT NULL , 
+// prenome VARCHAR(30) NOT NULL , 
+// texte TEXT NOT NULL, 
+// PRIMARY KEY(id) );";
+// 
 ?>
-<?php
-$connection->exec($sql);
+// <?php
+    // $connection->exec($sql);
 
-echo "congratulations you are connected to the database mode payment";
-?>
+    echo "congratulations you are connected to the database mode payment";
+    ?>
